@@ -1,4 +1,4 @@
-package org.slf4j.impl;
+package org.slf4j.simple;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,22 +19,29 @@ package org.slf4j.impl;
  * under the License.
  */
 
-import org.slf4j.ILoggerFactory;
-import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
 
 /**
- * Utility for Maven to access Slf4j-Simple internals through package access.
- * Use with precaution, since this is not normally intended for production use.
+ * MavenSimpleLoggerFactory
  */
-public class MavenSlf4jSimpleFriend
+public class MavenSimpleLoggerFactory
+        extends SimpleLoggerFactory
 {
-    public static void init()
+    /**
+     * Return an appropriate {@link MavenSimpleLogger} instance by name.
+     */
+    public Logger getLogger( String name )
     {
-        SimpleLogger.init();
-        ILoggerFactory loggerFactory = LoggerFactory.getILoggerFactory();
-        if ( loggerFactory instanceof SimpleLoggerFactory )
+        Logger simpleLogger = loggerMap.get( name );
+        if ( simpleLogger != null )
         {
-            ( (SimpleLoggerFactory) loggerFactory ).reset();
+            return simpleLogger;
+        }
+        else
+        {
+            Logger newInstance = new MavenSimpleLogger( name );
+            Logger oldInstance = loggerMap.putIfAbsent( name, newInstance );
+            return oldInstance == null ? newInstance : oldInstance;
         }
     }
 }

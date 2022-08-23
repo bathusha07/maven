@@ -66,7 +66,7 @@ under the License.
     <modelloVersion>2.0.0</modelloVersion>
     <jxpathVersion>1.3</jxpathVersion>
     <resolverVersion>1.8.2</resolverVersion>
-    <slf4jVersion>1.7.36</slf4jVersion>
+    <slf4jVersion>2.0.0</slf4jVersion>
     <xmlunitVersion>2.2.1</xmlunitVersion>
     <powermockVersion>1.7.4</powermockVersion>
     <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
@@ -600,6 +600,7 @@ under the License.
               -->
               <exclude>src/main/appended-resources/licenses/EPL-1.0.txt</exclude>
               <exclude>src/main/appended-resources/licenses/unrecognized-javax.annotation-api-1.3.2.txt</exclude>
+              <exclude>src/main/resources/META-INF/services/org.slf4j.spi.SLF4JServiceProvider</exclude>
             </excludes>
           </configuration>
         </plugin>

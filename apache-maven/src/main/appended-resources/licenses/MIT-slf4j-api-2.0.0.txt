@@ -1,6 +1,6 @@
-https://raw.githubusercontent.com/qos-ch/slf4j/v_1.7.32/LICENSE.txt
+https://raw.githubusercontent.com/qos-ch/slf4j/v_2.0.0/LICENSE.txt
 
-Copyright (c) 2004-2017 QOS.ch
+Copyright (c) 2004-2022 QOS.ch Sarl (Switzerland)
 All rights reserved.
 
 Permission is hereby granted, free  of charge, to any person obtaining
